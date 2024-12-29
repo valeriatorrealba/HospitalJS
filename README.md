@@ -49,21 +49,33 @@ http://localhost:5173/
 - Usa `useEffect` para cargar datos de doctores y servicios al montar el componente principal.
 - Usa `useState` para manejar el estado de doctores, servicios y citas.
 
+### 7. Manejo del DOM Virtual en ReactJS
+React utiliza el DOM virtual para comparar una representación con su estado anterior y aplicar únicamente los cambios necesarios al DOM real, mejorando el rendimiento.
+
 ## Estructura de carpetas y archivos
 ``` bash
+
 HospitalJS/
 │
 ├── pdf/
 │   └──Discusión y Análisis de Casos.pdf
+│   
 ├── public/
-│   ├── logo.png
+│   └──  logo.png
+│  
 ├── src/
 │   ├── assets/
 │   ├── components/
 │   │   ├── AppointmentForm.jsx    
 │   │   ├── DoctorCard.jsx  
+│   │   ├── Modal.jsx  
 │   │   └── ServiceList.jsx
-│   │
+│   ├── context/
+│   │   └── HospitalContext.jsx  
+│   ├── data/
+│   │   └── data.js  
+│   ├── hocs/
+│   │   └── withLoading.jsx  
 │   ├── App.css
 │   ├── App.jsx
 │   ├── index.css

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import withLoading from '../hocs/withLoading'
 
 function DoctorCard({ name, specialty, years }) {
     return (
@@ -16,4 +17,4 @@ DoctorCard.propTypes = {
     years: PropTypes.number.isRequired,
 }
 
-export default DoctorCard
+export default withLoading(DoctorCard)

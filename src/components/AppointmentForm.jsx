@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types'
+import { useRef } from 'react'
 
 function AppointmentForm({ doctors, onFormSubmit }) {
     const [formData, setFormData] = useState({
@@ -7,6 +8,11 @@ function AppointmentForm({ doctors, onFormSubmit }) {
         doctorId: '',
         appointmentDate: '',
     })
+
+    const reference = useRef(null)
+    const handleFocus = () => {
+        reference.current.focus()
+    }
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -24,7 +30,7 @@ function AppointmentForm({ doctors, onFormSubmit }) {
             <div className='row'>
                 <div className='col'>
                     <label className='mx-2'>Nombre del Paciente:</label>
-                    <input type="text" name="patientName" value={formData.patientName} onChange={handleChange} required />
+                    <input type="text" name="patientName" value={formData.patientName} onChange={handleChange} ref={reference} required />
                 </div>
                 <div className='col'>
                     <label className='mx-2'>Seleccione un Doctor:</label>
@@ -40,7 +46,7 @@ function AppointmentForm({ doctors, onFormSubmit }) {
                     <input type="date" name="appointmentDate" value={formData.appointmentDate} onChange={handleChange} required />
                 </div>
             </div>
-            <button type="submit" className='m-3'>Enviar</button>
+            <button type="submit" className='m-3' onClick={handleFocus}>Enviar</button>
         </form>
     )
 }
