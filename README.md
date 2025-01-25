@@ -113,5 +113,7 @@ HospitalJS/
 
 Discusión y Análisis de Casos: [Aplicación de ReactJS en el Proyecto del Hospital](https://github.com/valeriatorrealba/HospitalJS/blob/b36da5fb52c7c1b7134e01be482f7c6ce80575c8/Pdf/Discusi%C3%B3n%20y%20An%C3%A1lisis%20de%20Casos.pdf)
 
+Informe sobre Preguntas Teóricas de TypeScript: [Sesión Interactiva de Preguntas y Respuestas: Introducción a TypeScript en ReactJS](https://github.com/valeriatorrealba/HospitalJS/blob/main/Pdf/Informe%20sobre%20Preguntas%20Te%C3%B3ricas%20de%20TypeScript.pdf)
+
 ## Autor
 Desarrollado por Valeria Torrealba.
