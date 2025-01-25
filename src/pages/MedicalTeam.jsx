@@ -12,7 +12,13 @@ function MedicalTeam() {
         setError(null) 
         try {
             const data = await fetchDoctors() 
-            setDoctors(data) 
+            const adaptedData = data.map(doctor => ({
+                id: doctor.id,
+                name: doctor.name,
+                specialty: "Especialidad Genérica", 
+                years: 5, 
+            }))
+            setDoctors(adaptedData) 
         } catch (err) {
             setError(err.message) 
         } finally {

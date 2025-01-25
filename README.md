@@ -52,13 +52,19 @@ http://localhost:5173/
 ### 7. Manejo del DOM Virtual en ReactJS
 React utiliza el DOM virtual para comparar una representación con su estado anterior y aplicar únicamente los cambios necesarios al DOM real, mejorando el rendimiento.
 
-### Por qué se utilizó Fetch API
+### 8. Por qué se utilizó Fetch API
 Se eligió Fetch API porque:
 1. Es nativa del navegador y no requiere instalación de dependencias adicionales.
 2. Es compatible con Promesas, lo que facilita el manejo asíncrono.
 3. Para este caso de uso básico, Fetch proporciona toda la funcionalidad necesaria.
 
 Si fuera necesario manejar interceptores o configurar un cliente HTTP personalizado, se consideraría Axios como una opción alternativa.
+
+### 9. Datos de Ingreso Login
+
+role: Admin
+email: "test@example.com"
+password: "contraseña123" 
 
 ## Estructura de carpetas y archivos
 ``` bash
