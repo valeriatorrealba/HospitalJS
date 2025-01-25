@@ -8,6 +8,9 @@ import "./App.css"
 import { AuthProvider, useAuth } from './context/AuthContext'
 import AdminPanel from './pages/AdminPanel'
 import Login from './pages/Login'
+import FormularioPaciente from './components/FormularioPaciente'
+import DoctorRegistrationForm from './pages/DoctorRegistrationForm'
+import ErrorBoundary from './components/ErrorBoundary'
 
 const ProtectedRoute = ({ children, allowedRoles  }) => {
     const { isAuthenticated, role } = useAuth()
@@ -28,33 +31,36 @@ function App() {
         <AuthProvider>
             <HospitalContextProvider>
                 <Router>
-                    <header className="text-center m-5">
-                        <h1>HospitalJS</h1>
-                        <nav>
-                            <NavLink to="/" className="mx-2">Inicio</NavLink>
-                            <NavLink to="/team" className="mx-2">Equipo Médico</NavLink>
-                            <NavLink to="/appointments" className="mx-2">Citas</NavLink>
-                            <NavLink to="/login" className="mx-2">login</NavLink>
-                        </nav>
-                    </header>
-                    <main>
-                        <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route path="/team" element={
-                                <MedicalTeam /> 
-                            } 
-                            />
-                            <Route path="/appointments" element={<Appointments />} />
-                            
-                            <Route path="/login" element={
-                                <ProtectedRoute allowedRoles={["admin", "doctor"]}>  
-                                <Login /> 
-                                </ProtectedRoute>
-                            } 
-                            />
-                            <Route path="/admin-panel" element={<AdminPanel />} />
-                        </Routes>
-                    </main>
+                    <ErrorBoundary>
+                        <header className="text-center m-5">
+                            <h1>HospitalJS</h1>
+                            <nav>
+                                <NavLink to="/" className="mx-2">Inicio</NavLink>
+                                <NavLink to="/team" className="mx-2">Equipo Médico</NavLink>
+                                <NavLink to="/appointments" className="mx-2">Citas</NavLink>
+                                <NavLink to="/formulario-paciente" className="mx-2">Formulario Paciente</NavLink>
+                                <NavLink to="/register-doctor" className="mx-2">Registrar Doctor</NavLink>
+                                <NavLink to="/login" className="mx-2">login</NavLink>
+                            </nav>
+                        </header>
+                        <main>
+                            <Routes>
+                                <Route path="/" element={<Home />} />
+                                <Route path="/team" element={<MedicalTeam />} />
+                                <Route path="/appointments" element={<Appointments />} />
+                                <Route path="/formulario-paciente" element={<FormularioPaciente />} />
+                                
+                                <Route path="/login" element={
+                                    <ProtectedRoute allowedRoles={["admin", "doctor"]}>  
+                                    <Login /> 
+                                    </ProtectedRoute>
+                                } 
+                                />
+                                <Route path="/admin-panel" element={<AdminPanel />} />
+                                <Route path="/register-doctor" element={<DoctorRegistrationForm />} />
+                            </Routes>
+                        </main>
+                    </ErrorBoundary>
                 </Router>
             </HospitalContextProvider>
         </AuthProvider>

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import withLoading from '../hocs/withLoading'
+import withLoading from '../hooks/withLoading'
 
 function DoctorCard({ name, specialty, years }) {
     return (

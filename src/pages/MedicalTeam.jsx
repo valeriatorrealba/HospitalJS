@@ -1,53 +1,37 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import DoctorCard from '../components/DoctorCard'
-import { fetchDoctors } from '../services/api'
+import useDoctors from '../hooks/useDoctors'
 
 function MedicalTeam() {
-    const [doctors, setDoctors] = useState([])
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(null)
-
-    const loadDoctors = async () => {
-        setLoading(true) 
-        setError(null) 
-        try {
-            const data = await fetchDoctors() 
-            const adaptedData = data.map(doctor => ({
-                id: doctor.id,
-                name: doctor.name,
-                specialty: "Especialidad Genérica", 
-                years: 5, 
-            }))
-            setDoctors(adaptedData) 
-        } catch (err) {
-            setError(err.message) 
-        } finally {
-            setLoading(false) 
-        }
-    }
-
-    useEffect(() => {
-        loadDoctors() 
-    }, [])
+    const { doctors, loading, error, loadDoctors } = useDoctors()
 
     return (
-        <div>
+        <div className="container mt-4"> 
             <h2>Equipo Médico</h2>
-            {loading && <p>Cargando doctores...</p>}
+            {loading && <p className="text-info">Cargando doctores...</p>}
+
             {error && (
-                <div>
+                <div className="alert alert-danger" role="alert">
                     <p>Error: {error}</p>
-                    <button onClick={loadDoctors}>Reintentar</button>
+                    <button onClick={loadDoctors} className="btn btn-warning">Reintentar</button>
                 </div>
             )}
-            <button onClick={loadDoctors} disabled={loading} className="btn btn-primary">
-                Recargar Doctores
+
+            <button onClick={loadDoctors} disabled={loading} className="btn btn-primary mb-3">
+                {loading ? 'Cargando...' : 'Recargar Doctores'}
             </button>
-            <div className="doctor-list">
-                {doctors.map((doctor) => (
-                    <DoctorCard key={doctor.id} name={doctor.name} specialty="Especialidad Genérica" years={5} />
-                ))}
-            </div>
+
+            <div className="doctor-list mt-4">
+                {doctors.length > 0 ? (
+                    doctors.map((doctor) => (
+                        <DoctorCard key={doctor.id} name={doctor.name} specialty={doctor.specialty || "Especialidad Genérica"} years={doctor.years || 5} />
+                    ))
+                ) : (
+                    !loading && !error && (
+                        <p className="text-muted">No se encontraron doctores disponibles.</p>
+                    )
+                )}
+            </div>            
         </div>
     )
 }

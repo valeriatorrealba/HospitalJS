@@ -72,26 +72,35 @@ password: "contraseña123"
 HospitalJS/
 │
 ├── pdf/
-│   └──Discusión y Análisis de Casos.pdf
+│   ├── Discusión y Análisis de Casos.pdf
+│   ├── Informe sobre Preguntas Teóricas de TypeScript 1.pdf
+│   └── Informe sobre Preguntas Teóricas de TypeScript.pdf
 │   
 ├── public/
 │   └──  logo.png
 │  
 ├── src/
-│   ├── assets/
 │   ├── components/
 │   │   ├── AppointmentForm.jsx    
 │   │   ├── DoctorCard.jsx  
+│   │   ├── ErrorBoundary.jsx 
+│   │   ├── FormularioPaciente.jsx
 │   │   ├── Modal.jsx  
 │   │   └── ServiceList.jsx
 │   ├── context/
+│   │   ├── AuthContext.jsx  
 │   │   └── HospitalContext.jsx  
 │   ├── data/
 │   │   └── data.js  
-│   ├── hocs/
+│   ├── hooks/
+│   │   ├── useDoctors.jsx 
+│   │   ├── useForm.jsx
+│   │   ├── useHospitalData.jsx
 │   │   └── withLoading.jsx  
 │   ├── pages/
+│   │   ├── AdminPanel.jsx
 │   │   ├── Appointments.jsx  
+│   │   ├── DoctorRegistrationForm.jsx
 │   │   ├── Home.jsx  
 │   │   └── MedicalTeam.jsx  
 │   ├── sevices/
