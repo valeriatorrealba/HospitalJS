@@ -1,5 +1,6 @@
-import React, { createContext, useState, useEffect } from 'react'
-import { initialDoctors, initialServices } from '../data/data'
+import { createContext, useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
+import { initialDoctors, initialServices } from '../services/data'
 
 export const HospitalContext = createContext()
 
@@ -16,10 +17,14 @@ export const HospitalContextProvider = ({ children }) => {
     const addAppointment = (appointment) => {
         setAppointments([...appointments, appointment])
     }
-
+    
     return (
         <HospitalContext.Provider value={{ doctors, services, appointments, addAppointment }}>
             {children}
         </HospitalContext.Provider>
     )
+}
+
+HospitalContextProvider.propTypes = {
+    children: PropTypes.node.isRequired,
 }
