@@ -41,6 +41,7 @@ function App() {
                         <header className="text-center m-5">
                             <h1>HospitalJS</h1>
                             <nav>
+                                <NavLink to="/" className="mx-2"></NavLink>
                                 <NavLink to="/inicio" className="mx-2">Inicio</NavLink>
                                 <NavLink to="/team" className="mx-2">Equipo Médico</NavLink>
                                 <NavLink to="/appointments" className="mx-2">Citas</NavLink>
