@@ -66,6 +66,10 @@ role: Admin
 email: "test@example.com"
 password: "contraseña123" 
 
+### 10. PWA (Progressive Web App)
+
+Una PWA es una aplicación web que combina lo mejor de las aplicaciones móviles y las páginas web. Se puede instalar en dispositivos como una app nativa, funciona sin conexión y ofrece un rendimiento optimizado.
+
 ## Estructura de carpetas y archivos
 ``` bash
 
@@ -143,6 +147,8 @@ Preguntas Teóricas de TypeScript: [Sesión Interactiva de Preguntas y Respuesta
 Informe sobre Preguntas Teóricas de TypeScript: [Sesión Interactiva de Preguntas y Respuestas: Introducción a TypeScript en ReactJS](https://github.com/valeriatorrealba/HospitalJS/blob/main/Pdf/Informe%20sobre%20Preguntas%20Te%C3%B3ricas%20de%20TypeScript.pdf)
 
 Informe PWA: [Informe PWA](https://github.com/valeriatorrealba/HospitalJS/blob/main/Pdf/InformePWA.pdf) 
+
+Informe PWA2: [Informe PWA](https://github.com/valeriatorrealba/HospitalJS/blob/main/Pdf/InformePWA2.pdf) 
 
 ## Autor
 Desarrollado por Valeria Torrealba.
