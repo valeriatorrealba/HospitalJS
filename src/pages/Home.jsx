@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import ServiceList from '../components/ServiceList'
 import { fetchServices } from '../services/api'
+import ImageCapture from '../components/ImageCapture'
+import LocationDisplay from '../components/LocationDisplay'
 
 function Home() {
     const [services, setServices] = useState([])
@@ -38,6 +40,12 @@ function Home() {
                 Recargar Servicios
             </button>
             <ServiceList services={services} />
+
+            <h3>Selecciona una Foto desde tu dispositivo</h3>
+            <ImageCapture onImageCapture={(img) => console.log("Imagen seleccionada:", img)} />
+
+            <h3>Ubicación Actual</h3>
+            <LocationDisplay />
         </div>
     )
 }

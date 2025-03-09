@@ -150,5 +150,7 @@ Informe PWA: [Informe PWA](https://github.com/valeriatorrealba/HospitalJS/blob/m
 
 Informe PWA2: [Informe PWA](https://github.com/valeriatorrealba/HospitalJS/blob/main/Pdf/InformePWA2.pdf) 
 
+Informe PWA3: [Informe PWA](https://github.com/valeriatorrealba/HospitalJS/blob/main/Pdf/InformePWA3.pdf) 
+
 ## Autor
 Desarrollado por Valeria Torrealba.

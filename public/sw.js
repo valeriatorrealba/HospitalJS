@@ -122,11 +122,26 @@ self.addEventListener("install", (event) => {
             console.log("Cache abierto");
             return cache.addAll(urlsToCache);
         })
+        .catch((err) => console.error("SW: Error en cache.addAll", err))
     );
+    self.skipWaiting();
 });
 
 self.addEventListener("activate", (event) => {
-    console.log("SW: Activated", event.target);
+    console.log("SW: Activated");
+    event.waitUntil(
+        caches.keys().then((cacheNames) => {
+            return Promise.all(
+                cacheNames.map((cache) => {
+                    if (cache !== CACHE_NAME) {
+                        console.log("SW: Borrando caché antigua", cache);
+                        return caches.delete(cache);
+                    }
+                })
+            );
+        })
+    );
+    self.clients.claim(); 
 });
 
 self.addEventListener("fetch", (event) => {
@@ -136,4 +151,10 @@ self.addEventListener("fetch", (event) => {
             return response || fetch(event.request);
         })
     );
+});
+
+self.addEventListener("message", (event) => {
+    if (event.data === "SKIP_WAITING") {
+        self.skipWaiting();
+    }
 });
