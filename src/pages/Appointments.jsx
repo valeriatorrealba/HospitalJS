@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { HospitalContext } from '../context/HospitalContext'
 import AppointmentForm from '../components/AppointmentForm'
 

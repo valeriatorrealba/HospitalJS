@@ -1,4 +1,4 @@
-// src/components/DoctorList.jsx
+import React from 'react'
 import { useEffect, useState } from 'react'
 import { getDoctors } from '../services/hospitalApi'
 import DoctorCard from './DoctorCard'
