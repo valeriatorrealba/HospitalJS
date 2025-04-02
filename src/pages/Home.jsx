@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import ServiceList from '../components/ServiceList'
 import { fetchServices } from '../services/api'
 import ImageCapture from '../components/ImageCapture'
@@ -28,7 +28,7 @@ function Home() {
 
     return (
         <div>
-            <h2>Servicios Médicos</h2>
+            <h1>Servicios Médicos</h1>
             {loading && <p>Cargando servicios...</p>}
             {error && (
                 <div>
